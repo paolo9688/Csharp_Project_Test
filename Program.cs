@@ -1,4 +1,6 @@
-﻿public class Program
+﻿using System.Security.Cryptography.X509Certificates;
+
+public class Program
 {
     public static void Main(string[] args)
     {
@@ -7,6 +9,10 @@
 
         // inizializzo un nuovo oggetto della classe Methods:
         Methods method = new Methods();
+
+        // variabili costanti di bonus:
+        const int DOUBLE_BONUS = 2;
+        const int TRIPLE_BONUS = 6;
 
         // variabili che simulano il lancio di tre dadi a 6 facce:
         int roll1 = dice.Next(1, 7);
@@ -30,7 +36,7 @@
         {
             Console.WriteLine("You rolled triples! +6 bonus to total!");
             tripleCase = true;
-            total += 6;
+            total += TRIPLE_BONUS;
         }
 
         // verifico se si è avverato il caso del lancio doppio
@@ -39,7 +45,7 @@
         {
             Console.WriteLine("You rolled doubles! +2 bonus to total!");
             doubleCase = true;
-            total += 2;
+            total += DOUBLE_BONUS;
         }
 
         // stampo il risultato finale (solo nel caso in cui si sia avverato un bonus):
